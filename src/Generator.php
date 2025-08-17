@@ -396,6 +396,17 @@ class Generator
             return true;
         }
 
+        if ($value instanceof DetailedValue) {
+            $this->writer->startElement($name);
+            foreach ($value->getAttributes() as $attributeName => $attributeValue) {
+                $this->writer->writeAttribute($attributeName, $attributeValue);
+            }
+            $this->writer->text($value->getValue());
+            $this->writer->endElement();
+
+            return true;
+        }
+
         if (\is_bool($value)) {
             $value = $value ? 'true' : 'false';
         }
