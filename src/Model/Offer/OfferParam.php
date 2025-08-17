@@ -32,6 +32,11 @@ class OfferParam
     private $value;
 
     /**
+     * @var array
+     */
+    private $attributes = [];
+
+    /**
      * @return string
      */
     public function getName()
@@ -87,6 +92,26 @@ class OfferParam
     public function setValue($value)
     {
         $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return OfferParam
+     */
+    public function setAttributes(array $attributes)
+    {
+        $this->attributes = $attributes;
 
         return $this;
     }

@@ -327,6 +327,12 @@ class Generator
                 if ($param->getUnit()) {
                     $this->writer->writeAttribute('unit', $param->getUnit());
                 }
+                if ($param->getAttributes()) {
+                    foreach ($param->getAttributes() as $attribute => $value) {
+                        $this->writer->writeAttribute($attribute, $value);
+                    }
+                }
+
                 $this->writer->text($param->getValue());
 
                 $this->writer->endElement();
