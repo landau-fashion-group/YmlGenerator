@@ -218,6 +218,7 @@ class Generator
                 $this->addOfferElement($name, $value);
             }
         }
+        $this->addOfferCustomElements($offer);
         $this->addOfferOutlets($offer);
         $this->addOfferParams($offer);
         $this->addOfferDeliveryOptions($offer);
@@ -413,5 +414,12 @@ class Generator
         $this->writer->writeElement($name, $value);
 
         return true;
+    }
+
+    /**
+     * @param OfferInterface $offer
+     */
+    protected function addOfferCustomElements(OfferInterface $offer)
+    {
     }
 }
